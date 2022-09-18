@@ -1,26 +1,31 @@
 # [[dein.toml]]
 
+# プラグイン管理
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
+# 見た目
 [[plugins]]
 repo = 'vim-airline/vim-airline'
-
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
-
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+[[plugins]]
+repo = '4513ECHO/vim-colors-hatsunemiku'
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+[[plugins]]
+repo = 'tomasr/molokai'
 
+
+# ファイルツリー
 [[plugins]]
 repo = 'preservim/nerdtree'
 
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-
-[[plugins]]
-repo = '4513ECHO/vim-colors-hatsunemiku'
-
+# ファイル検索
 [[plugins]]
 repo = 'junegunn/fzf'
 build_on = '''
@@ -29,7 +34,31 @@ build_on = '''
 [[plugins]]
 repo = 'junegunn/fzf.vim'
 
+# ヘルプ日本語化
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
+
+# phpactor + deoplete設定(補完) ddc.vimとか言う新しいのが出た
+[[plugins]]
+repo  = 'phpactor/phpactor'
+on_ft = ['php']
+build = 'composer install'
+# Vim8の場合、nvim-yarpの動作に必要
+[[plugins]]
+repo    = 'roxma/vim-hug-neovim-rpc'
+if      = '!has("nvim") && has("python3")'
+depends = 'nvim-yarp'
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+if   = '!has("nvim") && has("python3")'
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+if   = 'has("python3")'
+hook_add = '''
+    let g:deoplete#enable_at_startup = 1
+'''
+[[plugins]]
+repo  = 'kristijanhusak/deoplete-phpactor'
+on_ft = ['php']
 
 
